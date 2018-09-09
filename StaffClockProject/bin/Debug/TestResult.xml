@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!--This file represents the results of running a test suite-->
+<test-results name="C:\Users\Acer\Documents\Códigos\C#\StaffClockProject\StaffClockProject\bin\Debug\StaffClockProject.dll" total="1" errors="1" failures="0" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2018-09-07" time="23:26:13">
+  <environment nunit-version="2.7.0.0" clr-version="2.0.50727.8762" os-version="Microsoft Windows NT 6.1.7601 Service Pack 1" platform="Win32NT" cwd="C:\Program Files (x86)\NUnit 2.7.0\bin" machine-name="ACER-PC" user="Acer" user-domain="Acer-PC" />
+  <culture-info current-culture="pt-BR" current-uiculture="pt-BR" />
+  <test-suite type="Assembly" name="C:\Users\Acer\Documents\Códigos\C#\StaffClockProject\StaffClockProject\bin\Debug\StaffClockProject.dll" executed="True" result="Failure" success="False" time="0.826" asserts="0">
+    <results>
+      <test-suite type="Namespace" name="StaffClockProject" executed="True" result="Failure" success="False" time="0.814" asserts="0">
+        <results>
+          <test-suite type="Namespace" name="Tests" executed="True" result="Failure" success="False" time="0.813" asserts="0">
+            <results>
+              <test-suite type="TestFixture" name="ExcelBuilder_Test" executed="True" result="Failure" success="False" time="0.809" asserts="0">
+                <results>
+                  <test-case name="StaffClockProject.Tests.ExcelBuilder_Test.Must_Build_Empty_Excel" executed="True" result="Error" success="False" time="0.290" asserts="0">
+                    <failure>
+                      <message><![CDATA[System.Exception : Exception of type 'System.Exception' was thrown.]]></message>
+                      <stack-trace><![CDATA[at StaffClockProject.Tests.ExcelBuilder_Test.Must_Build_Empty_Excel() in C:\Users\Acer\Documents\Códigos\C#\StaffClockProject\StaffClockProject\Tests\ExcelBuilder_Tests.cs:line 13
+]]></stack-trace>
+                    </failure>
+                  </test-case>
+                </results>
+              </test-suite>
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+    </results>
+  </test-suite>
+</test-results>
