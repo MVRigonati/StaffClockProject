@@ -1,11 +1,18 @@
-﻿using System;
+﻿using StaffClockProject.Execution;
+using System;
 using System.Windows.Forms;
 
 namespace StaffClockProject {
     public partial class MainForm : Form {
 
+        ConfigurationsMenu confMenu;
+
         public MainForm() {
+
             InitializeComponent();
+            confMenu = new ConfigurationsMenu(this);
+            confMenu.Hide();
+
         }
 
         private void button1_Click(object sender, EventArgs e) {
@@ -20,13 +27,20 @@ namespace StaffClockProject {
             }
             
             if (userResponse == DialogResult.Yes) {
-                downloadFile();
+                DownloadFile();
             }
 
         }
 
-        private void downloadFile() {
+        private void DownloadFile() {
             MessageBox.Show("Realizando download...");
+        }
+
+        private void Menu_Configurations(object sender, EventArgs e) {
+            
+            confMenu.Show();
+            this.Enabled = false;
+
         }
 
     }
