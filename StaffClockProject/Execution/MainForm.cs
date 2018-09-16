@@ -42,6 +42,5 @@ namespace StaffClockProject {
             this.Enabled = false;
 
         }
-
     }
 }

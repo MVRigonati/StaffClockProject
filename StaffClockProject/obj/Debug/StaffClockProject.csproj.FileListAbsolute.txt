@@ -60,3 +60,8 @@ C:\Users\bcf\Documents\MVR\Projetos\PontoEletrônico\StaffClockProject\StaffCloc
 C:\Users\bcf\Documents\MVR\Projetos\PontoEletrônico\StaffClockProject\StaffClockProject\obj\Debug\StaffClockProject.exe
 C:\Users\bcf\Documents\MVR\Projetos\PontoEletrônico\StaffClockProject\StaffClockProject\obj\Debug\StaffClockProject.pdb
 C:\Users\bcf\Documents\MVR\Projetos\PontoEletrônico\StaffClockProject\StaffClockProject\obj\Debug\StaffClockProject.Execution.ConfigurationsMenu.resources
+C:\Users\Acer\Documents\Códigos\C#\StaffClockProject\StaffClockProject\bin\Debug\WebDriver.dll
+C:\Users\Acer\Documents\Códigos\C#\StaffClockProject\StaffClockProject\bin\Debug\WebDriver.Support.dll
+C:\Users\Acer\Documents\Códigos\C#\StaffClockProject\StaffClockProject\bin\Debug\WebDriver.xml
+C:\Users\Acer\Documents\Códigos\C#\StaffClockProject\StaffClockProject\bin\Debug\WebDriver.Support.xml
+C:\Users\Acer\Documents\Códigos\C#\StaffClockProject\StaffClockProject\obj\Debug\StaffClockProject.Execution.ConfigurationsMenu.resources
