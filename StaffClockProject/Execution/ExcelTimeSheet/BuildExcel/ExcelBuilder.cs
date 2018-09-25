@@ -1,18 +1,23 @@
 ﻿using StaffClockProject.Execution.ExcelTimeSheet.BuildExcel;
+using StaffClockProject.Execution.Model;
+using System.Collections.Generic;
 
 namespace StaffClockProject.ExcelTimeSheet.BuildExcel {
 
     class BuildExcel {
+        
+        public static void BuildExcelFor(List<User> usuarios, string pathName) {
 
-        public static void BuildEmpty() {
+            var excel = new ExcelFile();
 
-			var excel = new ExcelFile();
-			excel.GetWorksheet(1).Cells[1, 1] = "celula [1, 1]";
-			excel.SaveAs("teste-excel");
-			excel.Close();
-			
+            foreach (User user in usuarios) {
+                excel.BuildBookFor(user);
+                excel.SaveWorkBookAs(user.Name);
+            }
+            
+            excel.Close();
+
         }
 
     }
-
 }

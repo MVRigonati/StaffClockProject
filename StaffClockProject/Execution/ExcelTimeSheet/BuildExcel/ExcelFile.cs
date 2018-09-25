@@ -1,36 +1,37 @@
 ﻿using Microsoft.Office.Interop.Excel;
+using StaffClockProject.Execution.Model;
 
 namespace StaffClockProject.Execution.ExcelTimeSheet.BuildExcel {
 
 	class ExcelFile {
 
-		// App to use the Excel API
-		public Application App { get; set; }
-		// One reference to a workbook
-		public Workbook WorkBook { get; set; }
+        // App to use the Excel API
+        private Application App;
+        // One reference to a workbook
+        private Workbook WorkBook;
 
-		// Initialization of the API and creation of one empty Workbook
+		// Initialization of the API
 		public ExcelFile() {
-			this.App = new Application();
-			this.WorkBook = App.Workbooks.Add();
-		}
+            this.App = new Application();
+        }
 
-		public void AddWorksheet() {
-			this.WorkBook.Sheets.Add();
-		}
+        // Building a book for the specific user
+        public void BuildBookFor(User usuarioEventos) {
 
-		public Worksheet GetWorksheet(int number) {
-			return this.WorkBook.Sheets[number];
-		}
+            this.WorkBook = this.App.Workbooks.Add();
+            Worksheet sheet = this.WorkBook.Sheets[1];
+            sheet.Cells[2, 2] = usuarioEventos.Name + "!";
 
-		public void SaveAs(string path) {
-			this.WorkBook.SaveAs(path);
-		}
+        }
 
-		public void Close() {
-			this.WorkBook.Close();
-			App.Quit();
-		}
+        public void SaveWorkBookAs(string pathName) {
+            this.WorkBook.SaveAs(pathName);
+        }
+
+        public void Close() {
+            this.WorkBook.Close();
+            App.Quit();
+        }
 
     }
 

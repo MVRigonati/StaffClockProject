@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace StaffClockProject.Execution {
@@ -6,9 +7,11 @@ namespace StaffClockProject.Execution {
     public partial class ConfigurationsMenu : Form {
 
         Form mainForm;
+        public static Dictionary<int, string> Users { get; private set; }
 
         public ConfigurationsMenu(Form mainForm) {
             this.mainForm = mainForm;
+            ConfigurationsMenu.Users = new Dictionary<int, string>();
             InitializeComponent();
         }
 
@@ -40,6 +43,7 @@ namespace StaffClockProject.Execution {
             DefaulExit();
             e.Cancel = true; // Dispose Prevent
         }
+
     }
 
 }

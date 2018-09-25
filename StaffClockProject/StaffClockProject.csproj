@@ -80,15 +80,20 @@
     <Compile Include="Execution\ExcelTimeSheet\BuildExcel\ExcelBuilder.cs" />
     <Compile Include="Execution\ExcelTimeSheet\BuildExcel\ExcelFile.cs" />
     <Compile Include="Execution\ExcelTimeSheet\DownloadFile\DownloadTextSheet.cs" />
+    <Compile Include="Execution\ExcelTimeSheet\Parse\ParseManager.cs" />
+    <Compile Include="Execution\ExcelTimeSheet\Parse\ParseEvent.cs" />
     <Compile Include="Execution\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Execution\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Execution\Model\Event.cs" />
+    <Compile Include="Execution\Model\User.cs" />
     <Compile Include="Execution\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tests\ExcelBuilderTests.cs" />
+    <Compile Include="Tests\LeituraDeArquivoTest.cs" />
     <Compile Include="Tests\SelenionTest.cs" />
     <EmbeddedResource Include="Execution\Configurations\ConfigurationsMenu.resx">
       <DependentUpon>ConfigurationsMenu.cs</DependentUpon>
@@ -120,9 +125,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Execution\ExcelTimeSheet\Parse\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
