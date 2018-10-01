@@ -7,7 +7,7 @@ namespace StaffClockProject.Execution.Model {
 
         public DateTime Data { get; set; }
 
-        public Event(int userID, DateTime data) {
+        public Event(DateTime data) {
             this.Data = data;
         }
         

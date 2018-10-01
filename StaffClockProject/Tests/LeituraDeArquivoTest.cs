@@ -1,7 +1,5 @@
 ﻿
 using NUnit.Framework;
-using StaffClockProject.Execution.ExcelTimeSheet.Parse;
-using System;
 using System.IO;
 using System.Windows.Forms;
 
@@ -13,16 +11,12 @@ namespace StaffClockProject.Tests {
         [Test]
         public void Must_read_a_txt_file() {
 
-            //string test = "00000747833107201808230212892870253007";
-
-            string test = "00000747833107201808230212892870253007 jjsjsjsjs kklkl";
-
-            var file = new StreamReader(@"C:\Users\Acer\Downloads\arquivo-origem.txt");
-
-            string result = file.ReadLine();
-            while (result != null) {
-                result = file.ReadLine();
+            string result = "";
+            foreach (string line in File.ReadAllLines(@"C:\Users\bcf\Downloads\YEAHH.txt")) {
+                result += line;
             }
+
+            MessageBox.Show(result);
 
         }
 

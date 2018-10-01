@@ -1,17 +1,30 @@
 ﻿
 using StaffClockProject.Execution.Model;
+using System;
 
 namespace StaffClockProject.Execution.ExcelTimeSheet.Parse {
 
     class ParseEvent {
         
-        public static Event CreateEvent(string oneEvent, out int userID) {
+        public static Event CreateEvent(string oneEvent, out string userID) {
 
-            userID = 0; // Colocar id do usuário para ser retornado
-            return null;
-            // Realizar parse do excel
-            // Criar um obj Event com as infos do parse
-            // Adicionar ao seu User correspondente
+            userID = oneEvent.Substring(22, 12);
+
+            string day = oneEvent.Substring(10, 2);
+            string month = oneEvent.Substring(12, 2);
+            string year = oneEvent.Substring(14, 4);
+            string hour = oneEvent.Substring(18, 2);
+            string minute = oneEvent.Substring(20, 2);
+            
+            DateTime dataEvento = new DateTime(
+                Convert.ToInt32(year),
+                Convert.ToInt32(month),
+                Convert.ToInt32(day),
+                Convert.ToInt32(hour),
+                Convert.ToInt32(minute),
+                0);
+
+            return new Event(dataEvento);
 
         }
 

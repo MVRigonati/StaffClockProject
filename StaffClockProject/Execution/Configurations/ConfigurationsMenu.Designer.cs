@@ -28,12 +28,14 @@
             this.textoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.voltarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pontoEletronicoPanel = new System.Windows.Forms.Panel();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.excelPanel = new System.Windows.Forms.Panel();
             this.label10 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.pontoEletronicoPanel.SuspendLayout();
             this.excelPanel.SuspendLayout();
@@ -46,11 +48,13 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.textToolStripMenuItem,
             this.textoToolStripMenuItem,
+            this.toolStripMenuItem2,
+            this.toolStripMenuItem1,
             this.voltarToolStripMenuItem});
             this.menuStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.VerticalStackWithOverflow;
             this.menuStrip1.Location = new System.Drawing.Point(9, 9);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(113, 93);
+            this.menuStrip1.Size = new System.Drawing.Size(126, 170);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -58,7 +62,7 @@
             // 
             this.textToolStripMenuItem.Name = "textToolStripMenuItem";
             this.textToolStripMenuItem.Padding = new System.Windows.Forms.Padding(4, 0, 4, 10);
-            this.textToolStripMenuItem.Size = new System.Drawing.Size(106, 29);
+            this.textToolStripMenuItem.Size = new System.Drawing.Size(108, 29);
             this.textToolStripMenuItem.Text = "Excel";
             this.textToolStripMenuItem.Click += new System.EventHandler(this.LeftMenuSaida);
             // 
@@ -66,7 +70,7 @@
             // 
             this.textoToolStripMenuItem.Name = "textoToolStripMenuItem";
             this.textoToolStripMenuItem.Padding = new System.Windows.Forms.Padding(4, 0, 4, 10);
-            this.textoToolStripMenuItem.Size = new System.Drawing.Size(106, 29);
+            this.textoToolStripMenuItem.Size = new System.Drawing.Size(108, 29);
             this.textoToolStripMenuItem.Text = "Ponto Eletrônico";
             this.textoToolStripMenuItem.Click += new System.EventHandler(this.LeftMenuPontoEletronico);
             // 
@@ -74,7 +78,7 @@
             // 
             this.voltarToolStripMenuItem.Name = "voltarToolStripMenuItem";
             this.voltarToolStripMenuItem.Padding = new System.Windows.Forms.Padding(4, 0, 4, 10);
-            this.voltarToolStripMenuItem.Size = new System.Drawing.Size(106, 29);
+            this.voltarToolStripMenuItem.Size = new System.Drawing.Size(108, 29);
             this.voltarToolStripMenuItem.Text = "Voltar";
             this.voltarToolStripMenuItem.Click += new System.EventHandler(this.LeftMenuVoltar);
             // 
@@ -90,6 +94,20 @@
             this.pontoEletronicoPanel.Size = new System.Drawing.Size(404, 271);
             this.pontoEletronicoPanel.TabIndex = 1;
             this.pontoEletronicoPanel.Visible = false;
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.Location = new System.Drawing.Point(238, 54);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(163, 20);
+            this.dateTimePicker2.TabIndex = 6;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(238, 16);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(163, 20);
+            this.dateTimePicker1.TabIndex = 5;
             // 
             // label5
             // 
@@ -130,19 +148,21 @@
             this.label10.TabIndex = 0;
             this.label10.Text = "Caminho de Saída:";
             // 
-            // dateTimePicker1
+            // toolStripMenuItem1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(238, 16);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(163, 20);
-            this.dateTimePicker1.TabIndex = 5;
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Padding = new System.Windows.Forms.Padding(4, 0, 4, 10);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(119, 29);
+            this.toolStripMenuItem1.Text = "Salvar";
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.SaveStripMenu_Click);
             // 
-            // dateTimePicker2
+            // toolStripMenuItem2
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(238, 54);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(163, 20);
-            this.dateTimePicker2.TabIndex = 6;
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Padding = new System.Windows.Forms.Padding(4, 0, 4, 10);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(119, 29);
+            this.toolStripMenuItem2.Text = "Lista de Cadastro";
+            this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
             // 
             // ConfigurationsMenu
             // 
@@ -180,5 +200,7 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
     }
 }

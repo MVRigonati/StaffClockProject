@@ -1,25 +1,30 @@
 ﻿
 using StaffClockProject.Execution.Model;
-using System.Collections;
+using System;
 using System.Collections.Generic;
 
 namespace StaffClockProject.Execution.ExcelTimeSheet.Parse {
 
     class ParseManager {
 
-        private static Hashtable usersList;
+        public static Dictionary<string, User> BuildUsersAndEvents(string allEvents) {
 
-        public static Hashtable BuildUsersAndEvents(string allEvents) {
-            
-            usersList = new Hashtable();
-            FillHashUsers();
+            Dictionary<string, User> usersList = new Dictionary<string, User>();
+            FillHashUsers(usersList);
 
             string[] allEventsArray = allEvents.Split(' ');
             foreach (string oneEvent in allEventsArray) {
 
-                var thisEvent = ParseEvent.CreateEvent(null, out int userID);
-                User user = (User) usersList[userID];
-                user.Eventos.Add(thisEvent);
+                try {
+
+                    var thisEvent = ParseEvent.CreateEvent(oneEvent, out string userID);
+                    User user = usersList[userID];
+                    user.Eventos.Add(thisEvent);
+
+                } catch (ArgumentOutOfRangeException) {
+                    // It's a genaric event
+
+                }
 
             }
 
@@ -27,14 +32,14 @@ namespace StaffClockProject.Execution.ExcelTimeSheet.Parse {
             
         }
 
-        private static void FillHashUsers() {
+        private static void FillHashUsers(Dictionary<string, User> usersList) {
 
-            Dictionary<int, string> usersListDictionary = ConfigurationsMenu.Users;
+            Dictionary<string, string> usersListDictionary = ConfigurationsMenu.Users;
 
-            foreach (KeyValuePair<int, string> userList in usersListDictionary) {
+            foreach (KeyValuePair<string, string> userList in usersListDictionary) {
 
                 var user = new User(userList.Key, userList.Value);
-                ParseManager.usersList.Add(user.Id, user);
+                usersList.Add(user.Id, user);
 
             }
 
