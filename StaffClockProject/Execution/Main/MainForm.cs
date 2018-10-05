@@ -1,4 +1,6 @@
-﻿using StaffClockProject.Execution;
+﻿using StaffClockProject.ExcelTimeSheet.BuildExcel;
+using StaffClockProject.Execution;
+using StaffClockProject.Execution.ExcelTimeSheet.Parse;
 using System;
 using System.IO;
 using System.Windows.Forms;
@@ -44,9 +46,10 @@ namespace StaffClockProject {
         private void MakeTheMagic(OpenFileDialog folderBrowser) {
             
             try {
+
                 string eventsFile = ReadLocalFile(folderBrowser.FileName);
-                MessageBox.Show(eventsFile);
-                // magic
+                var users = ParseManager.BuildUsers(eventsFile);
+                BuildExcel.BuildExcelFor(users, ConfigurationsMenu.OutputPath);
 
             } catch (IOException) {
                 MessageBox.Show(

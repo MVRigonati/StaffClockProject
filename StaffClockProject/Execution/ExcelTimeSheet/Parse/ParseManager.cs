@@ -2,12 +2,13 @@
 using StaffClockProject.Execution.Model;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace StaffClockProject.Execution.ExcelTimeSheet.Parse {
 
     class ParseManager {
 
-        public static Dictionary<string, User> BuildUsersAndEvents(string allEvents) {
+        public static List<User> BuildUsers(string allEvents) {
 
             Dictionary<string, User> usersList = new Dictionary<string, User>();
             FillHashUsers(usersList);
@@ -19,16 +20,19 @@ namespace StaffClockProject.Execution.ExcelTimeSheet.Parse {
 
                     var thisEvent = ParseEvent.CreateEvent(oneEvent, out string userID);
                     User user = usersList[userID];
-                    user.Eventos.Add(thisEvent);
+                    user.Events.Add(thisEvent);
 
                 } catch (ArgumentOutOfRangeException) {
                     // It's a genaric event
 
-                }
+                } catch (KeyNotFoundException) {
+                    // It's a genaric event
 
+                }
+                
             }
 
-            return usersList;
+            return usersList.Values.ToList();
             
         }
 

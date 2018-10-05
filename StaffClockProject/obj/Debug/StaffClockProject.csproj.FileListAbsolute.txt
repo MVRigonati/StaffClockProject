@@ -64,5 +64,5 @@ C:\Users\Acer\Documents\Códigos\C#\StaffClockProject\StaffClockProject\bin\Debu
 C:\Users\Acer\Documents\Códigos\C#\StaffClockProject\StaffClockProject\bin\Debug\WebDriver.xml
 C:\Users\Acer\Documents\Códigos\C#\StaffClockProject\StaffClockProject\bin\Debug\WebDriver.Support.xml
 C:\Users\Acer\Documents\Códigos\C#\StaffClockProject\StaffClockProject\obj\Debug\StaffClockProject.Execution.ConfigurationsMenu.resources
-C:\Users\bcf\Documents\MVR\Projetos\PontoEletrônico\StaffClockProject\StaffClockProject\obj\Debug\StaffClockProject.Execution.ConfigurationsC.resources
 C:\Users\bcf\Documents\MVR\Projetos\PontoEletrônico\StaffClockProject\StaffClockProject\obj\Debug\StaffClockProject.Execution.ConfigurationsMenu.resources
+C:\Users\bcf\Documents\MVR\Projetos\PontoEletrônico\StaffClockProject\StaffClockProject\obj\Debug\StaffClockProject.Execution.Configurations.UsersList.resources

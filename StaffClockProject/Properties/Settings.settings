@@ -11,5 +11,8 @@
     <Setting Name="EndDate" Type="System.DateTime" Scope="User">
       <Value Profile="(Default)">2018-09-27</Value>
     </Setting>
+    <Setting Name="UserListPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\Users\bcf\Downloads\userList.txt</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

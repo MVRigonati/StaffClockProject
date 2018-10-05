@@ -26,16 +26,17 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.textToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.textoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.voltarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pontoEletronicoPanel = new System.Windows.Forms.Panel();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.EndDatePicker = new System.Windows.Forms.DateTimePicker();
+            this.InitialDatePicker = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.excelPanel = new System.Windows.Forms.Panel();
+            this.OutputPathButton = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.pontoEletronicoPanel.SuspendLayout();
             this.excelPanel.SuspendLayout();
@@ -54,7 +55,7 @@
             this.menuStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.VerticalStackWithOverflow;
             this.menuStrip1.Location = new System.Drawing.Point(9, 9);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(126, 170);
+            this.menuStrip1.Size = new System.Drawing.Size(115, 151);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -74,6 +75,21 @@
             this.textoToolStripMenuItem.Text = "Ponto Eletrônico";
             this.textoToolStripMenuItem.Click += new System.EventHandler(this.LeftMenuPontoEletronico);
             // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Padding = new System.Windows.Forms.Padding(4, 0, 4, 10);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(108, 29);
+            this.toolStripMenuItem2.Text = "Lista de Cadastro";
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Padding = new System.Windows.Forms.Padding(4, 0, 4, 10);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(108, 29);
+            this.toolStripMenuItem1.Text = "Salvar";
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.SaveStripMenu_Click);
+            // 
             // voltarToolStripMenuItem
             // 
             this.voltarToolStripMenuItem.Name = "voltarToolStripMenuItem";
@@ -85,8 +101,8 @@
             // pontoEletronicoPanel
             // 
             this.pontoEletronicoPanel.AccessibleName = "";
-            this.pontoEletronicoPanel.Controls.Add(this.dateTimePicker2);
-            this.pontoEletronicoPanel.Controls.Add(this.dateTimePicker1);
+            this.pontoEletronicoPanel.Controls.Add(this.EndDatePicker);
+            this.pontoEletronicoPanel.Controls.Add(this.InitialDatePicker);
             this.pontoEletronicoPanel.Controls.Add(this.label5);
             this.pontoEletronicoPanel.Controls.Add(this.label4);
             this.pontoEletronicoPanel.Location = new System.Drawing.Point(125, 9);
@@ -95,19 +111,23 @@
             this.pontoEletronicoPanel.TabIndex = 1;
             this.pontoEletronicoPanel.Visible = false;
             // 
-            // dateTimePicker2
+            // EndDatePicker
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(238, 54);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(163, 20);
-            this.dateTimePicker2.TabIndex = 6;
+            this.EndDatePicker.Location = new System.Drawing.Point(238, 54);
+            this.EndDatePicker.Name = "EndDatePicker";
+            this.EndDatePicker.Size = new System.Drawing.Size(163, 20);
+            this.EndDatePicker.TabIndex = 6;
+            this.EndDatePicker.ValueChanged += new System.EventHandler(this.EndDatePickerChanged);
             // 
-            // dateTimePicker1
+            // InitialDatePicker
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(238, 16);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(163, 20);
-            this.dateTimePicker1.TabIndex = 5;
+            this.InitialDatePicker.Location = new System.Drawing.Point(238, 16);
+            this.InitialDatePicker.MinDate = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
+            this.InitialDatePicker.Name = "InitialDatePicker";
+            this.InitialDatePicker.Size = new System.Drawing.Size(163, 20);
+            this.InitialDatePicker.TabIndex = 5;
+            this.InitialDatePicker.Value = new System.DateTime(2018, 10, 2, 12, 2, 33, 0);
+            this.InitialDatePicker.ValueChanged += new System.EventHandler(this.InitialDatePickerChanged);
             // 
             // label5
             // 
@@ -132,11 +152,22 @@
             // excelPanel
             // 
             this.excelPanel.AccessibleName = "";
+            this.excelPanel.Controls.Add(this.OutputPathButton);
             this.excelPanel.Controls.Add(this.label10);
             this.excelPanel.Location = new System.Drawing.Point(125, 9);
             this.excelPanel.Name = "excelPanel";
             this.excelPanel.Size = new System.Drawing.Size(404, 271);
             this.excelPanel.TabIndex = 5;
+            // 
+            // OutputPathButton
+            // 
+            this.OutputPathButton.Location = new System.Drawing.Point(166, 13);
+            this.OutputPathButton.Name = "OutputPathButton";
+            this.OutputPathButton.Size = new System.Drawing.Size(75, 23);
+            this.OutputPathButton.TabIndex = 6;
+            this.OutputPathButton.Text = "Select...";
+            this.OutputPathButton.UseVisualStyleBackColor = true;
+            this.OutputPathButton.Click += new System.EventHandler(this.OutputPathButton_Click);
             // 
             // label10
             // 
@@ -147,22 +178,6 @@
             this.label10.Size = new System.Drawing.Size(144, 17);
             this.label10.TabIndex = 0;
             this.label10.Text = "Caminho de Saída:";
-            // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Padding = new System.Windows.Forms.Padding(4, 0, 4, 10);
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(119, 29);
-            this.toolStripMenuItem1.Text = "Salvar";
-            this.toolStripMenuItem1.Click += new System.EventHandler(this.SaveStripMenu_Click);
-            // 
-            // toolStripMenuItem2
-            // 
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Padding = new System.Windows.Forms.Padding(4, 0, 4, 10);
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(119, 29);
-            this.toolStripMenuItem2.Text = "Lista de Cadastro";
-            this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
             // 
             // ConfigurationsMenu
             // 
@@ -198,9 +213,10 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel excelPanel;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker EndDatePicker;
+        private System.Windows.Forms.DateTimePicker InitialDatePicker;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.Button OutputPathButton;
     }
 }

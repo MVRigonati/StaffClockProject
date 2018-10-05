@@ -58,5 +58,17 @@ namespace StaffClockProject.Properties {
                 this["EndDate"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("C:\\Users\\bcf\\Downloads\\userList.txt")]
+        public string UserListPath {
+            get {
+                return ((string)(this["UserListPath"]));
+            }
+            set {
+                this["UserListPath"] = value;
+            }
+        }
     }
 }
