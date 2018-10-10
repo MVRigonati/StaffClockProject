@@ -66,3 +66,6 @@ C:\Users\Acer\Documents\Códigos\C#\StaffClockProject\StaffClockProject\bin\Debu
 C:\Users\Acer\Documents\Códigos\C#\StaffClockProject\StaffClockProject\obj\Debug\StaffClockProject.Execution.ConfigurationsMenu.resources
 C:\Users\bcf\Documents\MVR\Projetos\PontoEletrônico\StaffClockProject\StaffClockProject\obj\Debug\StaffClockProject.Execution.ConfigurationsMenu.resources
 C:\Users\bcf\Documents\MVR\Projetos\PontoEletrônico\StaffClockProject\StaffClockProject\obj\Debug\StaffClockProject.Execution.Configurations.UsersList.resources
+C:\Users\bcf\Documents\MVR\Projetos\PontoEletrônico\StaffClockProject\StaffClockProject\bin\Debug\EntityFramework.dll
+C:\Users\bcf\Documents\MVR\Projetos\PontoEletrônico\StaffClockProject\StaffClockProject\bin\Debug\Oracle.DataAccess.dll
+C:\Users\bcf\Documents\MVR\Projetos\PontoEletrônico\StaffClockProject\StaffClockProject\bin\Debug\EntityFramework.xml
