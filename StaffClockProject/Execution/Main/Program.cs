@@ -1,7 +1,5 @@
 ﻿using System;
-using OpenQA.Selenium;
 using System.Windows.Forms;
-using OpenQA.Selenium.Chrome;
 
 namespace StaffClockProject {
     class Program {

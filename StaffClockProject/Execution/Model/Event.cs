@@ -1,14 +1,19 @@
 ﻿
 using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace StaffClockProject.Execution.Model {
 
     class Event {
 
-        public DateTime Data { get; set; }
+        [Key]
+        public string UserID { get; set; }
 
-        public Event(DateTime data) {
-            this.Data = data;
+        public DateTime DataEvento { get; set; }
+
+        public Event(string userId, DateTime dataEvento) {
+            this.UserID = userId;
+            this.DataEvento = dataEvento;
         }
         
     }

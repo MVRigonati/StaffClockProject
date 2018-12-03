@@ -2,38 +2,45 @@
 using OpenQA.Selenium.Chrome;
 using System;
 using System.Threading;
-using String = System.String;
 
 namespace StaffClockProject.DownloadFile {
 
     class DownloadTextSheet {
 
-        private String Url { get; set; }
-        private String User { get; set; }
-        private String Password { get; set; }
+        private readonly String url;
+        private readonly String user;
+        private readonly String password;
+        private readonly String downloadPath;
 
-        public DownloadTextSheet(String url, String usr, String password) {
-            this.Url = url;
-            this.User = usr;
-            this.Password = password;
+        public DownloadTextSheet(String url, String user, String password, String downloadPath) {
+
+            if (!url.StartsWith("http")) {
+                url = "http://" + url;
+            }
+            this.url = url;
+
+            this.user = user;
+            this.password = password;
+            this.downloadPath = downloadPath;
+
         }
 
         public void Download(String dataIni, String dataFim, int tempoEspera) {
-            
-            // http://chromedriver.storage.googleapis.com/index.html?path=2.41/
+
             IWebDriver driver = null;
             try {
 
-                driver = new ChromeDriver();
-                driver.Navigate().GoToUrl(this.Url);
+                // http://chromedriver.storage.googleapis.com/index.html?path=2.41/
+                driver = new ChromeDriver(DownloadPathConfigurations());
+                driver.Navigate().GoToUrl(this.url);
 
                 // Login
                 driver.FindElement(By.Id("lblLogin"))
-                    .SendKeys(this.User);
+                    .SendKeys(this.user);
 
                 // Senha
                 driver.FindElement(By.Id("lblPass"))
-                    .SendKeys(this.Password);
+                    .SendKeys(this.password);
 
                 // É necessário o clique no botão entrar, submit não funciona
                 driver.FindElement(By.LinkText("Entrar")).Click();
@@ -64,6 +71,17 @@ namespace StaffClockProject.DownloadFile {
 
         }
 
+        private ChromeOptions DownloadPathConfigurations() {
+
+            // Muda o caminho onde o arquivo será baixado
+            var chromeOptions = new ChromeOptions();
+            chromeOptions.AddUserProfilePreference("download.default_directory", this.downloadPath);
+            chromeOptions.AddUserProfilePreference("intl.accept_languages", "nl");
+            chromeOptions.AddUserProfilePreference("disable-popup-blocking", "true");
+            return chromeOptions;
+
+        }
+
         /// <summary>
         /// Este método tem a função de fazer uma tentativa de click a cada
         /// um segundo.
@@ -74,7 +92,7 @@ namespace StaffClockProject.DownloadFile {
         /// </summary>
         /// <param name="driver"></param>
         /// <param name="id"></param>
-        private static void ClickOn(IWebDriver driver, string id) {
+        private static void ClickOn(IWebDriver driver, String id) {
             try {
                 driver.FindElement(By.Id(id)).Click();
             } catch (NoSuchElementException) {

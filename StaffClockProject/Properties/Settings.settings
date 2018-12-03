@@ -2,17 +2,31 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="StaffClockProject.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="OutputPath" Type="System.String" Scope="User">
-      <Value Profile="(Default)">C:\Users\bcf\Documents</Value>
-    </Setting>
     <Setting Name="InitialDate" Type="System.DateTime" Scope="User">
       <Value Profile="(Default)">2018-08-27</Value>
     </Setting>
     <Setting Name="EndDate" Type="System.DateTime" Scope="User">
       <Value Profile="(Default)">2018-09-27</Value>
     </Setting>
-    <Setting Name="UserListPath" Type="System.String" Scope="User">
-      <Value Profile="(Default)">C:\Users\bcf\Downloads\userList.txt</Value>
+    <Setting Name="PathToSave" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\Users\bcf\Downloads\Teste</Value>
+    </Setting>
+    <Setting Name="StaffDB" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Data Source=192.168.1.103;Initial Catalog=GECO;User ID=conector;Password=bcf4ever&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=192.168.1.103;Initial Catalog=GECO;User ID=conector;Password=bcf4ever</Value>
+    </Setting>
+    <Setting Name="Url" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="User" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="Password" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
     </Setting>
   </Settings>
 </SettingsFile>

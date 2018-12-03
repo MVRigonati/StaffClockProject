@@ -1,18 +1,26 @@
 ﻿
-using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace StaffClockProject.Execution.Model {
 
     class User {
 
-        public string Name { get; set; }
-        public string Id { get; set; }
-        public List<Event> Events { get; set; }
+        [Key]
+        public string Cadastro { get; set; }
 
-        public User(string id, string name) {
-            this.Name = name;
-            this.Id = id;
-            this.Events = new List<Event>();
+        public string Nome { get; set; }
+
+        public User() {
+            // For Entity Framework
+        }
+
+        public User(string cadastro) {
+            this.Cadastro = cadastro;
+        }
+
+        public User(string cadastro, string nome) {
+            this.Cadastro = cadastro;
+            this.Nome = nome;
         }
 
     }

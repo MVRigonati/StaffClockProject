@@ -1,6 +1,8 @@
-﻿using StaffClockProject.ExcelTimeSheet.BuildExcel;
-using StaffClockProject.Execution;
+﻿using StaffClockProject.Execution;
+using StaffClockProject.Execution.DAO;
+using StaffClockProject.Execution.ExcelTimeSheet.DownloadFile;
 using StaffClockProject.Execution.ExcelTimeSheet.Parse;
+using StaffClockProject.Properties;
 using System;
 using System.IO;
 using System.Windows.Forms;
@@ -11,9 +13,20 @@ namespace StaffClockProject {
         public ConfigurationsMenu ConfMenu { get; private set; }
 
         public MainForm() {
+
             InitializeComponent();
             ConfMenu = new ConfigurationsMenu(this);
+
             ConfMenu.Hide();
+            FillInformations();
+
+        }
+
+        private void FillInformations() {
+
+            InitialDatePicker.Value = Settings.Default.InitialDate;
+            EndDatePicker.Value = Settings.Default.EndDate;
+
         }
 
         private void Menu_Configurations(object sender, EventArgs e) {
@@ -21,51 +34,55 @@ namespace StaffClockProject {
             this.Enabled = false;
         }
 
-        private void OnlyLocalCheckBox_CheckedChanged(object sender, EventArgs e) {
-            UseLocalFile.Enabled = !UseLocalFile.Enabled;
-        }
+        private string ReadLocalFile(string filePath) {
 
-        private void SelectLocalFileButton_Click(object sender, EventArgs e) {
+            string[] files = Directory.GetFiles(filePath);
+            string[] lines = File.ReadAllLines(files[0]);
+            File.Delete(files[0]);
 
-            var folderBrowser = new OpenFileDialog();
-
-            var userResponse = DialogResult.No;
-            if (folderBrowser.ShowDialog() == DialogResult.OK) {
-                userResponse = MessageBox.Show(folderBrowser.FileName,
-                    "Confirme o nome do arquivo",
-                    MessageBoxButtons.YesNo);
+            string result = "";
+            foreach (string line in lines) {
+                result += " " + line;
             }
-
-            if (userResponse == DialogResult.Yes) {
-                MakeTheMagic(folderBrowser);
-
-            }
+            return result;
 
         }
 
-        private void MakeTheMagic(OpenFileDialog folderBrowser) {
-            
+        private void SaveToDatabaseButton_Click(object sender, EventArgs e) {
+
             try {
+                DownloadManager.DownloadFileFrom(Settings.Default.Url, Settings.Default.User, Settings.Default.Password);
+                string eventsTxt = ReadLocalFile(Settings.Default.PathToSave);
+                var events = ParseManager.BuildEvents(eventsTxt);
 
-                string eventsFile = ReadLocalFile(folderBrowser.FileName);
-                var users = ParseManager.BuildUsers(eventsFile);
-                BuildExcel.BuildExcelFor(users, ConfigurationsMenu.OutputPath);
+                var eventConector = new EventDAO();
+                events.ForEach( 
+                    oneEvent => eventConector.PersistEvent(oneEvent)
+                );
+
+                MessageBox.Show("Operação concluida.");
 
             } catch (IOException) {
                 MessageBox.Show(
-                    "Não foi possível recuperar o arquivo, verifique o caminho selecionado.",
+                    "Não foi possível recuperar o arquivo, verifique a conexão com o dispositivo.",
                     "Erro ao Ler Arquivo");
             }
 
         }
 
-        private string ReadLocalFile(string filePath) {
+        private void SaveValues_Click(object sender, EventArgs e) {
 
-            string result = "";
-            foreach (string line in File.ReadAllLines(filePath)) {
-                result += " " + line;
-            }
-            return result;
+            Settings.Default.Save();
+            MessageBox.Show("Configurações salvas com sucesso!", "Salvar");
+
+        }
+
+        private void InitialDate_ValueChanged(object sender, EventArgs e) {
+            Settings.Default.InitialDate = InitialDatePicker.Value;
+        }
+
+        private void EndDate_ValueChanged(object sender, EventArgs e) {
+            Settings.Default.EndDate = EndDatePicker.Value;
         }
     }
 }

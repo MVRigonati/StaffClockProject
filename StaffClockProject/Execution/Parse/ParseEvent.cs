@@ -6,9 +6,9 @@ namespace StaffClockProject.Execution.ExcelTimeSheet.Parse {
 
     class ParseEvent {
         
-        public static Event CreateEvent(string oneEvent, out string userID) {
+        public static Event CreateEvent(string oneEvent) {
 
-            userID = oneEvent.Substring(22, 12);
+            string userID = oneEvent.Substring(22, 12);
 
             string day = oneEvent.Substring(10, 2);
             string month = oneEvent.Substring(12, 2);
@@ -17,19 +17,16 @@ namespace StaffClockProject.Execution.ExcelTimeSheet.Parse {
             string minute = oneEvent.Substring(20, 2);
 
             DateTime dataEvento = new DateTime();
-            try {
-                dataEvento = new DateTime(
+
+            dataEvento = new DateTime(
                     Convert.ToInt32(year),
                     Convert.ToInt32(month),
                     Convert.ToInt32(day),
                     Convert.ToInt32(hour),
                     Convert.ToInt32(minute),
                     0);
-            } catch (FormatException) {
 
-            }
-
-            return new Event(dataEvento);
+            return new Event(userID, dataEvento);
 
         }
 

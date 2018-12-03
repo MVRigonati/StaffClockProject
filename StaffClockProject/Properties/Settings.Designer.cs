@@ -25,18 +25,6 @@ namespace StaffClockProject.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("C:\\Users\\bcf\\Documents")]
-        public string OutputPath {
-            get {
-                return ((string)(this["OutputPath"]));
-            }
-            set {
-                this["OutputPath"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("2018-08-27")]
         public global::System.DateTime InitialDate {
             get {
@@ -61,13 +49,60 @@ namespace StaffClockProject.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("C:\\Users\\bcf\\Downloads\\userList.txt")]
-        public string UserListPath {
+        [global::System.Configuration.DefaultSettingValueAttribute("C:\\Users\\bcf\\Downloads\\Teste")]
+        public string PathToSave {
             get {
-                return ((string)(this["UserListPath"]));
+                return ((string)(this["PathToSave"]));
             }
             set {
-                this["UserListPath"] = value;
+                this["PathToSave"] = value;
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=192.168.1.103;Initial Catalog=GECO;User ID=conector;Password=bcf4ever" +
+            "")]
+        public string StaffDB {
+            get {
+                return ((string)(this["StaffDB"]));
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Url {
+            get {
+                return ((string)(this["Url"]));
+            }
+            set {
+                this["Url"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string User {
+            get {
+                return ((string)(this["User"]));
+            }
+            set {
+                this["User"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Password {
+            get {
+                return ((string)(this["Password"]));
+            }
+            set {
+                this["Password"] = value;
             }
         }
     }
