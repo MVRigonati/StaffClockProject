@@ -1,5 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using StaffClockProject.Execution.Model;
+using StaffClockProject.Properties;
+using System.Data.Entity.Infrastructure;
 
 namespace StaffClockProject.Execution.DAO {
     class StaffContext : DbContext {
@@ -8,8 +10,11 @@ namespace StaffClockProject.Execution.DAO {
         public DbSet<Event> Eventos { get; private set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder options) {
-            options.UseSqlServer("Data Source=192.168.1.213;Initial Catalog=GECO;" +
+
+            string databaseIP = Settings.Default.DatabaseIP;
+            options.UseSqlServer("Data Source=" + databaseIP + ";Initial Catalog=GECO;" +
                 "User ID=conector;Password=bcf4ever");
+
         }
 
     }

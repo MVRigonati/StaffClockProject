@@ -15,7 +15,8 @@ namespace StaffClockProject.Execution.ExcelTimeSheet.DownloadFile {
             var initialDateFormated = String.Format("{0:dd/MM/yy 00:01}", Settings.Default.InitialDate);
             var endDateFormated = String.Format("{0:dd/MM/yy 23:59}", Settings.Default.EndDate);
 
-            selenium.Download(initialDateFormated, endDateFormated, 10000);
+            int waitMinutes = Settings.Default.WaitMin * 1000;
+            selenium.Download(initialDateFormated, endDateFormated, waitMinutes);
 
         }
 

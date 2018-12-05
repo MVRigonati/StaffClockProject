@@ -5,6 +5,7 @@ using StaffClockProject.Properties;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Windows.Forms;
 using static System.Windows.Forms.ListView;
 
@@ -36,6 +37,8 @@ namespace StaffClockProject.Execution {
             UserTextBox.Text = Settings.Default.User;
             PasswordTextBox.Text = Settings.Default.Password;
             DownloadPath.Text = Settings.Default.PathToSave;
+            DatabaseIPTextBox.Text = Settings.Default.DatabaseIP;
+            WaitMinutesInput.Value = Settings.Default.WaitMin;
 
             LoadUsersList();
 
@@ -45,15 +48,23 @@ namespace StaffClockProject.Execution {
             
             UsersList.Items.Clear();
 
-            // Gets all registrered users from database
-            foreach (User usr in UserDAO.GetAllUsers()) {
+            try {
 
-                // Creates a list row
-                var userListItem = new ListViewItem(usr.Cadastro);
-                userListItem.SubItems.Add(usr.Nome);
+                // Gets all registrered users from database
+                foreach (User usr in UserDAO.GetAllUsers()) {
 
-                // Adds the row to the list
-                UsersList.Items.Add(userListItem);
+                    // Creates a list row
+                    var userListItem = new ListViewItem(usr.Cadastro);
+                    userListItem.SubItems.Add(usr.Nome);
+
+                    // Adds the row to the list
+                    UsersList.Items.Add(userListItem);
+
+                }
+
+            } catch (SqlException) {
+                MessageBox.Show("Não foi possível realizar conexão com banco de dados.\n" +
+                    "Verifique o IP especificado nas configurações e a disponibilidade do banco.");
 
             }
 
@@ -153,6 +164,8 @@ namespace StaffClockProject.Execution {
             Settings.Default.User = UserTextBox.Text;
             Settings.Default.Password = PasswordTextBox.Text;
             Settings.Default.PathToSave = DownloadPath.Text;
+            Settings.Default.DatabaseIP = DatabaseIPTextBox.Text;
+            Settings.Default.WaitMin = (int)WaitMinutesInput.Value;
 
             Settings.Default.Save();
             MessageBox.Show("Valores salvos com sucesso!", "Salvar");

@@ -2,6 +2,7 @@
 using OpenQA.Selenium.Chrome;
 using System;
 using System.Threading;
+using System.Windows.Forms;
 
 namespace StaffClockProject.DownloadFile {
 
@@ -31,7 +32,7 @@ namespace StaffClockProject.DownloadFile {
             try {
 
                 // http://chromedriver.storage.googleapis.com/index.html?path=2.41/
-                driver = new ChromeDriver(DownloadPathConfigurations());
+                driver = new ChromeDriver(@"C:\Chrome\driver", DownloadPathConfigurations());
                 driver.Navigate().GoToUrl(this.url);
 
                 // Login
@@ -65,7 +66,8 @@ namespace StaffClockProject.DownloadFile {
                 Thread.Sleep(tempoEspera);
                 driver.Close();
 
-            } catch (Exception) {
+            } catch (Exception ex) {
+                MessageBox.Show(ex.Message);
                 driver.Close();
             }
 

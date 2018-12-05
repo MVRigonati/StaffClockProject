@@ -13,7 +13,7 @@ namespace StaffClockProject.Execution.DAO {
         }
 
         public static List<User> GetAllUsers() {
-             return new StaffContext().Users.ToList();
+            return new StaffContext().Users.ToList();
         }
 
         public static void RemoveUser(User toRemove) {

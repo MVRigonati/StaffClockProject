@@ -105,5 +105,29 @@ namespace StaffClockProject.Properties {
                 this["Password"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("10")]
+        public int WaitMin {
+            get {
+                return ((int)(this["WaitMin"]));
+            }
+            set {
+                this["WaitMin"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("192.168.1.213")]
+        public string DatabaseIP {
+            get {
+                return ((string)(this["DatabaseIP"]));
+            }
+            set {
+                this["DatabaseIP"] = value;
+            }
+        }
     }
 }

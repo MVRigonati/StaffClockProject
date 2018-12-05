@@ -28,5 +28,11 @@
     <Setting Name="Password" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
+    <Setting Name="WaitMin" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">10</Value>
+    </Setting>
+    <Setting Name="DatabaseIP" Type="System.String" Scope="User">
+      <Value Profile="(Default)">192.168.1.213</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
